@@ -26,12 +26,12 @@ if (navigator.mediaDevices.getUserMedia) {
   let onSuccess = function(stream) {
     const mediaRecorder = new MediaRecorder(stream);
     // https://stackoverflow.com/a/9390035/1401562
-    recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-    recorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
-    recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
-    recorder.setAudioEncoder(MediaRecorder.getAudioSourceMax());
-    recorder.setAudioEncodingBitRate(16*44100);
-    recorder.setAudioSamplingRate(44100);
+    mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+    mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
+    mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+    mediaRecorder.setAudioEncoder(MediaRecorder.getAudioSourceMax());
+    mediaRecorder.setAudioEncodingBitRate(16*44100);
+    mediaRecorder.setAudioSamplingRate(44100);
 
     visualize(stream);
 
