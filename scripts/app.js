@@ -25,6 +25,13 @@ if (navigator.mediaDevices.getUserMedia) {
 
   let onSuccess = function(stream) {
     const mediaRecorder = new MediaRecorder(stream);
+    // https://stackoverflow.com/a/9390035/1401562
+    recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+    recorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
+    recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+    recorder.setAudioEncoder(MediaRecorder.getAudioSourceMax());
+    recorder.setAudioEncodingBitRate(16*44100);
+    recorder.setAudioSamplingRate(44100);
 
     visualize(stream);
 
